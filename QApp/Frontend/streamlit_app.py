@@ -1,0 +1,10 @@
+# QApp/Frontend/streamlit_app.py
+import streamlit as st
+import sys
+sys.path.insert(0, '/workspaces/mlops-docker-')
+from QApp.Backend.qa_service import answer_question
+st.title("QApp - Simple Docker Demo")
+question = st.text_input("Ask a question")
+if st.button("Ask") and question.strip():
+ st.success(answer_question(question))
+ 
